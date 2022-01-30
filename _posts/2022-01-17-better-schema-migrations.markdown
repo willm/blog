@@ -6,9 +6,7 @@ categories: postgresql python databases
 ---
 # Using migra for database migrations
 
-Database schema migrations are a tough part of working with databases whether you let your framework (eg: rails, django) manage your schema or you choose opt to doing it yourself. 
-
-We've been using postgresql in production for some time. Rather than opt for a framework that manages your database schema and migrations for you as your object model changes (a la rails or django), we opted for a simpler set of scripts that applied all the sql files in a directory in order to build up the schema. The directory listing looks something like this:
+Database schema migrations are a tough part of working with databases whether you let your framework (eg: rails, django) manage your schema or you choose to do it yourself. We opted for a simpler set of scripts that applied all the sql files in a directory in order to build up the schema. The directory listing looks something like this:
 
 ```
 000-baseline.sql
