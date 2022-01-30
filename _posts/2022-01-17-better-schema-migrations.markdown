@@ -6,7 +6,7 @@ categories: postgresql python databases
 ---
 # Using migra for database migrations
 
-Database schema migrations are a tough part of working with databases whether you let your framework (eg: rails, django) manage your schema or you choose to do it yourself. We opted for a simpler set of scripts that applied all the sql files in a directory in order to build up the schema. The directory listing looks something like this:
+Database schema migrations are a tough part of working with databases whether you let your framework (eg: rails, django) manage your schema or you choose to do it yourself. We opted for a simpler set of scripts that applied all the sql files in a `./db/migrations` directory in order to build up the schema. The directory listing looks something like this:
 
 ```
 000-baseline.sql
@@ -15,7 +15,7 @@ Database schema migrations are a tough part of working with databases whether yo
 ```
 When you want to change/modify an object, you simply add a new sql file with the next number in the list to make your change.
 
-Postgres offers an official docker image to do exactly this task.
+Postgres offers an [official docker image](https://hub.docker.com/_/postgres) to do exactly this task. We place the following `Dockerfile` in our `./db` directory.
 
 ```dockerfile
 FROM postgres:10-alpine
@@ -47,11 +47,11 @@ This runs our tests against the freshly created local database.
 
 Initially, when we were ready to go to the test environment we manually ran the latest migration, deployed our application and ran our smoke tests against it. If that went well, we repeated the process in production.
 
-This worked up to a point, however as our application and database grew, migrations became more tricky. We needed to think carefully about how they affected existing data, about users of specific database functions expecting a certain signature and generally about how to avoid downtime during migrations.
+This worked up to a point, however, as our application and database grew, migrations became more tricky. We needed to think carefully about how they affected existing data, about users of specific database functions expecting a certain signature and generally about how to avoid downtime during migrations.
 
-If migrations are tricky and need to be run in stages manually, you will undoubtedly sooner or later end up with schemas that vary between what's in git, what's in the test environment and what's in production.
+If migrations are tricky and need to be run in stages manually, you will undoubtedly sooner or later end up with diverging schemas where what's in git doesn't match what's in the test environment and what's in production.
 
-This happened to us after releasing some new database orientated features and caused a couple of bugs in production that were hard to track down and were due to migrations been not fully or not applied across both our environments.
+This happened to us after releasing some new database orientated features and caused a couple of bugs in production that were hard to track down and were due to migrations being partially or not applied at all between environments.
 
 To avoid this from happening again, we added [migra](https://pypi.org/project/migra/) to our CI pipeline. Migra allows you to compare 2 database schemas and output the code required to make them identical. Think of it like a diff for database schemas. When we push a change to an environment, We compare the schema we've tested against in docker with the environment we're targetting.
 
