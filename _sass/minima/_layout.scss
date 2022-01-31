@@ -5,7 +5,7 @@
   border-top: 5px solid;
   border-image-source: linear-gradient(to right, $grey-color-dark, $green-color);
   border-image-slice: 1;
-  border-bottom: 1px solid $grey-color-light;
+  border-bottom: 5px solid;
   color: $header-text-color;
   background-color: $grey-color-dark;
   min-height: $spacing-unit * 1.865;
@@ -17,6 +17,7 @@
 .site-title {
   @include relative-font-size(1.625);
   font-weight: 300;
+  text-decoration: none;
   line-height: $base-line-height * $base-font-size * 2.25;
   letter-spacing: -1px;
   margin-bottom: 0;
@@ -25,6 +26,13 @@
   &,
   &:visited {
     color: $header-text-color;
+  }
+
+  img {
+    max-height: 50px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    padding-right: 5px
   }
 }
 
@@ -123,6 +131,7 @@
 .social-media-list {
   list-style: none;
   margin-left: 0;
+  a {text-decoration: none;}
 }
 
 .footer-col-wrapper {
@@ -182,8 +191,6 @@
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
-  background-image: radial-gradient(#3f6c2245 1.25px, white 1.25px);
-  background-size: 25px 25px;
 }
 
 .page-heading {
