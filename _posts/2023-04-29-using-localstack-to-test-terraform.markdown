@@ -3,7 +3,7 @@
 layout: post
 title:  "Using localstack to test terraform"
 date:   2023-04-29 08:00:00 +0000
-categories: terraform aws devops lambda ioc
+categories: terraform aws devops lambda ioc localstack
 ---
 
 I recently experimented with running an AWS application completely locally. Just like in local development, I wanted to be able to run my infrastructure as code on my machine and run tests against it before deploying it to a real world AWS environment. This would allow me to test things in a free and secure way.
