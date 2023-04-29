@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Using localstack to test terraform"
