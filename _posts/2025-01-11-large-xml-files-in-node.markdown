@@ -62,7 +62,8 @@ library.
 
 ## Out of memory issues
 
-![import all](/assets/images/xml-parsing-in-node/import-all.png)
+![import all](/assets/images/xml-parsing-in-node/import-all.png){: width="800"
+style="display:block; margin: auto" }
 
 Although I never stored the entire file in memory, my initial strategy was to
 keep an array of all the product objects I'd parsed in memory until the full
@@ -74,7 +75,8 @@ would keep the parsed products in memory until that threshold was reached, then
 send them off to the api, then fill up the next batch until all the products
 were imported.
 
-![import in chunks](/assets/images/xml-parsing-in-node/import-xml-in-chunks.png)
+![import in chunks](/assets/images/xml-parsing-in-node/import-xml-in-chunks.png){:
+width="800" style="display:block; margin: auto" }
 
 The sax library is an
 [event emitter](https://nodejs.org/api/events.html#class-eventemitter), you pass
@@ -233,7 +235,8 @@ in javascript.
 Thankfully I came across
 [this github](https://github.com/isaacs/sax-js/issues/105) issue in sax.
 
-![import in chunks](/assets/images/xml-parsing-in-node/pause-resume.png)
+![import in chunks](/assets/images/xml-parsing-in-node/pause-resume.png){:
+width="800" style="display:block; margin: auto" }
 
 It turns out that readable streams have
 [`pause()`](https://nodejs.org/api/stream.html#readablepause) and
