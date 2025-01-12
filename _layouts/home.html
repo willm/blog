@@ -3,6 +3,20 @@ layout: default
 ---
 
 <div class="home">
+  <script type="module" defer>
+    const url = new URL(window.location.href);
+    const posts = Array.from(document.body.querySelectorAll('ul.post-list > li'));
+    const tag = url.searchParams.get('tag');
+    if (tag) {
+      const excluded = posts.filter(post => {
+        const postTags = Array.from(post.querySelectorAll('.pill')).map(e => e.innerText);
+        return !postTags.includes(tag);
+      });
+      if (excluded.length < posts.length) {
+        excluded.forEach(e => e.style = 'display: none');
+      }
+    }
+  </script>
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
@@ -22,7 +36,7 @@ layout: default
           </a>
           <ul class="pills">
             {%- for category in post.categories -%}
-            <li class="pill">{{ category }}</li>
+            <li class="pill"><a href="/?tag={{ category }}">{{ category }}</a></li>
             {%- endfor -%}
           </ul>
         </h3>
