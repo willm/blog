@@ -62,8 +62,8 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    background-color: $background-color;
-    border: 1px solid $grey-color-light;
+    background-color: $grey-color-dark;
+    border: 1px solid $grey-color-medium;
     border-radius: 5px;
     text-align: right;
 
@@ -86,7 +86,7 @@
       text-align: center;
 
       > svg {
-        fill: $grey-color-dark;
+        fill: $grey-color-light;
       }
     }
 
@@ -277,17 +277,17 @@
 }
 
 .pill {
-  background-color: $green-color;
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 0.1em 0.5em;
   border-radius: 20px;
   list-style-type: none;
   line-height: 1.5;
   white-space: nowrap;
   font-size: small;
+  border: solid 1px $green-color;
 }
 
 .pill > *, .pill > a:visited, .pill > a:hover {
-  color: $grey-color-light;
+  color: $green-color;
   text-decoration: none;
 }
