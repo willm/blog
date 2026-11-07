@@ -20,6 +20,7 @@ $header-text-color:#fff;
 $grey-color:       #575757 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color-medium: #9c9c9c;
 
 $table-text-align: left !default;
 
@@ -46,9 +47,44 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
+// Theme colours, exposed as custom properties so they can switch at runtime.
+// Light values are the Sass palette above; dark values follow the OS setting.
+:root {
+  color-scheme: light dark;
+
+  --text-color:                 #{$text-color};
+  --background-color:           #{$background-color};
+  --brand-color:                #{$brand-color};
+  --brand-color-hover:          #{darken($brand-color, 5%)};
+  --grey-color:                 #{$grey-color};
+  --grey-color-light:           #{$grey-color-light};
+  --header-background:          #{$grey-color-dark};
+  --table-text-color:           #{lighten($text-color, 18%)};
+  --table-row-even:             #{lighten($grey-color-light, 6%)};
+  --table-header-background:    #{lighten($grey-color-light, 3%)};
+  --table-header-border:        #{darken($grey-color-light, 4%)};
+  --table-header-border-bottom: #{darken($grey-color-light, 12%)};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color:                 #e4e4e4;
+    --background-color:           #1a1c1a;
+    --brand-color:                #8fc46a;
+    --brand-color-hover:          #a3d483;
+    --grey-color:                 #a8a8a8;
+    --grey-color-light:           #3a3d3a;
+    --header-background:          #2e481d;
+    --table-text-color:           #d0d0d0;
+    --table-row-even:             #212421;
+    --table-header-background:    #2a2d2a;
+    --table-header-border:        #444;
+    --table-header-border-bottom: #555;
+  }
+}
+
 // Import partials.
 @import
   "minima/base",
-  "minima/layout",
-  "minima/syntax-highlighting"
+  "minima/layout"
 ;

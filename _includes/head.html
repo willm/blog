@@ -2,15 +2,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#3f6c22" />
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#3f6c22" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#202220" media="(prefers-color-scheme: dark)" />
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' -%}
   <script type="text/javascript">
-var sc_project=12870079; 
-var sc_invisible=1; 
-var sc_security="55949e65"; 
+var sc_project=12870079;
+var sc_invisible=1;
+var sc_security="55949e65";
 </script>
 <script type="text/javascript"
 src="https://www.statcounter.com/counter/counter.js" async></script>
@@ -20,4 +22,9 @@ src="https://c.statcounter.com/12870079/0/55949e65/1/" alt="free web stats"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     {%- include google-analytics.html -%}
   {%- endif -%}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-light.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/atom-one-dark.min.css" media="(prefers-color-scheme: dark)">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+
+  <script>hljs.highlightAll();</script>
 </head>
