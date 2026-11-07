@@ -7,7 +7,7 @@
   border-image-slice: 1;
   border-bottom: 5px solid;
   color: $header-text-color;
-  background-color: $grey-color-dark;
+  background-color: var(--header-background);
   min-height: $spacing-unit * 1.865;
 
   // Positioning context for the mobile navigation icon
@@ -62,7 +62,7 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit / 2;
-    background-color: $grey-color-dark;
+    background-color: var(--header-background);
     border: 1px solid $grey-color-medium;
     border-radius: 5px;
     text-align: right;
@@ -118,7 +118,7 @@
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid $grey-color-light;
+  border-top: 1px solid var(--grey-color-light);
   padding: $spacing-unit 0;
 }
 
@@ -136,7 +136,7 @@
 
 .footer-col-wrapper {
   @include relative-font-size(0.9375);
-  color: $grey-color;
+  color: var(--grey-color);
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
 }
@@ -212,7 +212,7 @@
 
 .post-meta {
   font-size: $small-font-size;
-  color: $grey-color;
+  color: var(--grey-color);
 }
 
 .post-link {
@@ -284,10 +284,10 @@
   line-height: 1.5;
   white-space: nowrap;
   font-size: small;
-  border: solid 1px $green-color;
+  border: solid 1px var(--brand-color);
 }
 
 .pill > *, .pill > a:visited, .pill > a:hover {
-  color: $green-color;
+  color: var(--brand-color);
   text-decoration: none;
 }
